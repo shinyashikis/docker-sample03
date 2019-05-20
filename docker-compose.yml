@@ -1,0 +1,16 @@
+version: "3"
+services:
+  my-spring-boot:
+    build: my-spring-boot/
+    image: shinyashikis/spring-boot-app:0.0.1
+    container_name: sample-sb03
+    ports:
+      - 18080:8080
+    links:
+      - my-elasticsearch
+  my-elasticsearch:
+    build: my-elasticsearch/
+    image: shinyashikis/elasticsearch-7.0.1:0.0.1
+    container_name: sample-es03
+    ports:
+      - 19200:9200
